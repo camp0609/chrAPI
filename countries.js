@@ -78,5 +78,6 @@ hnd.neighbors = [slv, gtm, nic];
 nic.neighbors = [hnd, cri];
 cri.neighbors = [nic, pan];
 pan.neighbors = [cri];
+const countriesList = [can, usa, mex, blz, gtm, slv, hnd, nic, cri, pan]
 
-module.exports = {can, usa, mex, blz, gtm, slv, hnd, nic, cri, pan};
+module.exports = {can, usa, mex, blz, gtm, slv, hnd, nic, cri, pan, countriesList};
