@@ -1,11 +1,19 @@
 const countries = require('./countries.js');
 
+function reset() {
+    //reset to country default state
+    countries.countriesList.forEach(country => {
+        country.previous = null;
+        country.visited = false;
+    });
+}
+
 function bfs(queue, stack, destination) {
     while(queue.length != 0) {
         let current = queue.shift();
         stack.push(current);
         if (current.id == destination){
-            return true
+            return true;
         }
      
         for(let i = 0; i < current.neighbors.length; i++) {
@@ -31,6 +39,7 @@ function buildList(stack) {
             nextTail = currentTail.previous;
         }
     }
+    reset();
     return shortestPath;
 }
 
@@ -43,6 +52,7 @@ module.exports = function findPath(destination) {
     if(bfs(queue, stack, destination)){
         return buildList(stack);
     }else {
-        return "There is no path to this country from the USA"
+        reset();
+        return "There is no path to this country from the USA";
     }
 }
