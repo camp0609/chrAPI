@@ -4,11 +4,7 @@ function bfs(queue, stack, destination) {
     while(queue.length != 0) {
         let current = queue.shift();
         stack.push(current);
-        console.log(destination);
-        console.log(current.id);
-        console.log(current.id == destination)
         if (current.id == destination){
-            console.log("found it")
             return true
         }
      
@@ -44,7 +40,6 @@ module.exports = function findPath(destination) {
     let current = countries.usa;
     current.visited = true;
     queue.push(current);
-    console.log("right before bfs");
     if(bfs(queue, stack, destination)){
         return buildList(stack);
     }else {
